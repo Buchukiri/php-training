@@ -32,6 +32,9 @@
                 <?php
                     $firstname = "Samir";
                     $score = 327;
+
+                      echo "<p>$firstname a obtenu $score points à cette partie.</p>"
+
                 ?>
             </div>
         </section>
@@ -49,6 +52,18 @@
                 $priceProduct2 = 2.90;
                 $nameProduct3 = "potion";
                 $priceProduct3 = 5.20;
+
+                $productList = [
+                    [$nameProduct1 => $priceProduct1],
+                    [$nameProduct2 => $priceProduct2],
+                    [$nameProduct3 => $priceProduct3]
+                ];
+
+
+                echo "<li>$nameProduct1 : $priceProduct1 €</li>
+                <li>$nameProduct2 : $priceProduct2 €</li>
+                <li>$nameProduct3 : $priceProduct3 €</li>"
+                
                 ?>
             </div>
         </section>
@@ -56,12 +71,16 @@
         <!-- QUESTION 3 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 3</h2>
-            <p class="exercice-txt">Calculer le montant total de la commande des produits ci-dessus avec les quantités ci-dessous et appliquez lui une remise de 10%.</p>
+            <p class="exercice-txt">Calculer le montant total de la commande des produits ci-dessus 
+                avec les quantités ci-dessous et appliquez lui une remise de 10%.</p>
             <div class="exercice-sandbox">
             <?php
                 $quantityProduct1 = 1;
                 $quantityProduct2 = 10;
                 $quantityProduct3 = 4;
+
+                $totalCommande = ($priceProduct1 * $quantityProduct1 + $priceProduct2 * $quantityProduct2 + $priceProduct3 * $quantityProduct3)*0.90;
+                echo $totalCommande                
             ?>
             </div>
         </section>
@@ -72,6 +91,15 @@
             <h2 class="exercice-ttl">Question 4</h2>
             <p class="exercice-txt">Affichez le prix le plus élevé des 3 produits ci-dessus.</p>
             <div class="exercice-sandbox">
+            
+            <?php
+            
+            echo max($priceProduct1,$priceProduct2,$priceProduct3)
+
+
+            
+            ?>
+
 
             </div>
         </section>
@@ -145,6 +173,15 @@
             </ul>
             <p class="exercice-txt">Afficher la valeur de cette variable avec tous les détails.</p>
             <div class="exercice-sandbox">
+
+        <?php
+
+        
+        
+        ?>
+
+
+
                 
             </div>
         </section>
