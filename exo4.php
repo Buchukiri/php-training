@@ -346,8 +346,7 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
              * Return the values from the first array but not in the seconde one
              * 
              * @param array $a
-             * @param array $b
-             * @param bool $unique  Removes the duplicate from output
+             * @param int $n
              * @return array
              */
             
@@ -358,8 +357,8 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             function getValuesFromArray(array $a, int $n) {
                 return array_slice($a, 0, $n);
             }
+            var_dump(getValuesFromArray($arrayA, 4))
  
-            
             ?>
 
                 
