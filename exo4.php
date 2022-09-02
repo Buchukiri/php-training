@@ -168,7 +168,7 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
                 return $newArray
             }
 
-            var_dump(getValueMultiplyBy2($arrayA))
+            var_dump(divideValuesBy($arrayB,8))
             
             ?>
 
@@ -182,6 +182,35 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <h2 class="exercice-ttl">Question 5</h2>
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau d'entiers ou de chaînes de caractères et retourne le tableau sans doublons</p>
             <div class="exercice-sandbox">
+
+              
+            <?php
+            
+            /**
+             * RClean array from duplicates values
+             * 
+             * @param array $array The list of values to be divided
+             * @return array
+             */
+
+            function cleanArrayFromDuplicate(array $array):array {
+                return array_unique($array)
+
+                // $output =[];
+                // foreach ($array as $value) {
+                //     if(!in_array($value,$output)) 
+                //     $output[] = $value
+                // }
+                // return $output;
+            }
+
+            var_dump(cleanArrayFromDuplicate($arrayA))
+            
+            ?>
+
+
+
+
                 
             </div>
         </section>
@@ -191,6 +220,43 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <h2 class="exercice-ttl">Question 6</h2>
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre 2 tableaux et retourne un tableau représentant l'intersection des 2</p>
             <div class="exercice-sandbox">
+
+             <?php
+            
+            /**
+             * Returns the  intersection of 2 arrays
+             * 
+             * @param array $array 
+             * @param array $array 
+             * @return array
+             */
+
+            function getArrayIntersection(array $array,array $arrayA):array {
+                return array_intersect($array,$arrayA)
+            }
+            var_dump(doubleArray($arrayA,$arrayB))
+
+            // OR
+
+               function getArrayIntersection(array $array,array $arrayA):array {
+                $a = [];
+                foreach ($array as $value) {
+                   if (in_array($value,$arrayA)) $a[$key] = $value; 
+                    return $a;
+                }
+            }
+
+
+            // OR
+            return array_filter($array,fn($v) =>in_array($v,$arrayA));
+
+
+            var_dump(getArrayIntersection($arrayA,$arrayB))
+
+
+
+            
+            ?>
                 
             </div>
         </section>
@@ -201,6 +267,27 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre 2 tableaux et retourne un tableau des valeurs du premier tableau qui ne sont pas dans le second</p>
             <div class="exercice-sandbox">
 
+
+
+             <?php
+            
+            /**
+             * Return the values from the first array but not in the seconde one
+             * 
+             * @param array $a
+             * @param array $b
+             * @return array
+             */
+            
+            
+            function getArrayDIfference(array $a, array $b):array {
+                return array_diff($a,$b)
+            }
+
+            var_dump(getArrayDIfference($arrayA,$arrayB))
+            
+            ?>
+
             </div>
         </section>
 
@@ -208,8 +295,40 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
         <!-- QUESTION 8 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 8</h2>
-            <p class="exercice-txt">Réécrire la fonction précédente pour lui ajouter un paramètre booléen facultatif. Si celui-ci est à true, le tableau retourné sera sans doublons</p>
+            <p class="exercice-txt">Réécrire la fonction précédente pour lui ajouter 
+                un paramètre booléen facultatif. Si celui-ci est à true, le tableau retourné sera sans doublons</p>
             <div class="exercice-sandbox">
+
+            <?php
+            
+            /**
+             * Return the values from the first array but not in the seconde one
+             * 
+             * @param array $a
+             * @param array $b
+             * @param bool $unique  Removes the duplicate from output
+             * @return array
+             */
+            
+      
+           
+
+            
+            function getArrayDIfference(array $a, array $b, bool $unique = false):array {
+                  $output = [];
+            foreach ($a as $key => $value) {
+                if(!in_array($value,$b)) $output[$key] = $value;
+            }
+            if($unique) return  cleanArrayFromDuplicate($output);
+            
+            return $output    
+            }
+
+            var_dump(getArrayDIfference($arrayA,$arrayB,true))
+            
+            ?>
+
+
 
             </div>
         </section>
@@ -220,6 +339,29 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <h2 class="exercice-ttl">Question 9</h2>
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau et un entier et retourne les n premiers éléments du tableau.</p>
             <div class="exercice-sandbox">
+
+             <?php
+            
+            /**
+             * Return the values from the first array but not in the seconde one
+             * 
+             * @param array $a
+             * @param array $b
+             * @param bool $unique  Removes the duplicate from output
+             * @return array
+             */
+            
+      
+           
+
+            
+            function getValuesFromArray(array $a, int $n) {
+                return array_slice($a, 0, $n);
+            }
+ 
+            
+            ?>
+
                 
             </div>
         </section>
