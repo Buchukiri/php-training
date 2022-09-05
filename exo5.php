@@ -20,7 +20,7 @@ function getHtmlFromArray(array $array) :string {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?<?=time()?>">
     <title>Introduction PHP - Exo 5</title>
 </head>
 <body class="dark-template">
@@ -146,13 +146,19 @@ try {
             <p class="exercice-txt">L'image et le titre de la série sont des liens menant à cette page avec en paramètre "serie", l'identifiant de la série</p>
             <p class="exercice-txt">Afficher une seule série par ligne sur les plus petits écrans, 2 séries par ligne sur les écrans intermédiaires et 4 séries par ligne sur un écran d'ordinateur.</p>
             <div class="exercice-sandbox">
-            <ul>
+            <ul class="series">
                 <?php
+
+                function getSerieURL(int $idSerie):string {
+                    return "?serie=$idSerie";
+                }
+
+
                 foreach ($series as $serie) {
                     // var_dump($serie["image"],$serie["name"],$serie["createdBy",$serie["actors"]]);
-                    echo "<li>";
-                    echo  "<a href=\"exo5.php?serie=".$serie["id"]."\"><img src=\"".$serie["image"]."\"></a>";
-                    echo "<h2><a href=\"exo5.php?serie=".$serie["id"]."\">".$serie["name"]."</h2></a>";
+                    echo "<li class=\"series-item serie\">";
+                    echo "<a href=\"exo5.php?serie=".$serie["id"]."\"><img class=\"serie-img\" src=\"".$serie["image"]."\"></a>";
+                    echo "<h2 class=\"serie-ttl\"><a href=\"exo5.php?serie=".$serie["id"]."\">".$serie["name"]."</h2></a>";
                     echo "<h3>Creée par :</h3>";
                     echo getHtmlFromArray($serie["createdBy"]);
                     echo "<h3>Acteurs :</h3>";
