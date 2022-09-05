@@ -42,9 +42,9 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
                 function getHtmlFromArray(array $array) :string {
                     $list ="";
                     foreach($array as $index => $value) {
-                        $list .= "<li>$index: $$value</li>"
-                    }
-                    return "<ul>$list</ul>"
+                        $list .= "<li>$index: $$value</li>";
+                    };
+                    return "<ul>$list</ul>";
                 }
 
                 echo getHtmlFromArray($arrayA);
@@ -70,9 +70,9 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
                 $list = "<ul>";
                 foreach($array as $number) {
                     if ($number%2 ===0) {
-                        $list .= "<li>".$number."</li>"
-                    }
-                }
+                        $list .= "<li>".$number."</li>";
+                    };
+                };
                 $list .="</ul>";
                 return $list;
             }
@@ -80,18 +80,18 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             echo getNumberPair($arrayA)
 
 
-            function getEvenNumberFromArray(array $array) :array {
-                // $a =[];
-                // foreach($array as $number) {
-                //     if($number%2 ===0) {
-                //         $a[] = $number
-                //     }
-                //     return $a
-                return array_filter($array,fn($v) => $v%2 === 0);
-            }
+            // function getEvenNumberFromArray(array $array) :array {
+            //     // $a =[];
+            //     // foreach($array as $number) {
+            //     //     if($number%2 ===0) {
+            //     //         $a[] = $number
+            //     //     }
+            //     //     return $a
+            //     return array_filter($array,fn($v) => $v%2 === 0);
+            // };
 
-            echo getHtmlFromArray(getEvenNumberFromArray($array))
-            ?>
+            // echo getHtmlFromArray(getEvenNumberFromArray($array));
+            // ?>
 
             </div>
         </section>
@@ -105,7 +105,7 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <?php
             
             function getEvenInex(array $a):array {
-                return array_filter($a,fn($k) => $k%2 === 0)
+                return array_filter($a,fn($k) => $k%2 === 0);
             }
             
             ?>
@@ -134,7 +134,7 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
                 foreach ($array as $value) {
                     if(is_numeric($value)) $newArray[] = $value * 2;
                 }
-                return $newArray
+                return $newArray;
             }
 
             var_dump(getValueMultiplyBy2($arrayA))
@@ -343,14 +343,17 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
              <?php
             
             /**
-             * Return the values from the first array but not in the seconde one
+             * Return N Values from the array
              * 
-             * @param array $a
-             * @param int $n
+             * @param array $a the list of values
+             * @param int $n 
              * @return array
              */
             
-      
+                        
+            function getValuesFromArray(array $a, int $n) {
+                return array_slice($a, 0, $n);
+            }
            
 
             
