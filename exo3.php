@@ -1,29 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Introduction PHP - Exo 3</title>
-</head>
-<body class="dark-template">
-    <div class="container">
-        <header class="header">
-            <h1 class="main-ttl">Introduction PHP - Exo 3</h1>
-            <nav class="main-nav">
-                <ul class="main-nav-list">
-                    <li><a class="main-nav-link" href="index.php">Entrainement</a></li>
-                    <li><a class="main-nav-link" href="exo2.php">Donnez moi des fruits</a></li>
-                    <li><a class="main-nav-link active" href="exo3.php">Donnez moi de la thune</a></li>
-                    <li><a class="main-nav-link" href="exo4.php">Des fonctions et des tableaux</a></li>
-                    <li><a class="main-nav-link" href="exo5.php">Netflix</a></li>
-                </ul>
-            </nav>
-        </header>
-
 <?php
+$pageTitle = "Introduction PHP - Exo 3";
+$pageNumber = 3;
+include 'includes/_header.php';
 
 $fruits = ["fraise", "banane","pomme", "cerise", "ananas"];
 
@@ -148,7 +126,7 @@ $prices = [3, 2, 2, 5, 8];
             <div class="exercice-sandbox">
 
             <?php
-                echo $cart*1.18
+                echo $cart*1.18;
             ?>
           
                 
@@ -160,6 +138,12 @@ $prices = [3, 2, 2, 5, 8];
             <h2 class="exercice-ttl">Question 8</h2>
             <p class="exercice-txt">Ajouter au tableau $store le fruit "kiwi" pour un prix de 1,50 € puis afficher le tableau complet</p>
             <div class="exercice-sandbox">
+
+            <?php
+                $store["kiwi"] = 1.50;
+                var_dump ($store)
+
+            ?>
                 
             </div>
         </section>
@@ -177,6 +161,15 @@ $prices = [3, 2, 2, 5, 8];
             <p class="exercice-txt">Ajouter les nouveaux fruits du tableau $newFruits au tableau $store</p>
             <div class="exercice-sandbox">
 
+            <?php
+                foreach ($newFruits as $newFruit => $price) {
+                    $store[$newFruit] = $price;
+                }
+                var_dump($store)
+
+            ?>
+
+
             </div>
         </section>
 
@@ -185,6 +178,15 @@ $prices = [3, 2, 2, 5, 8];
             <h2 class="exercice-ttl">Question 10</h2>
             <p class="exercice-txt">Afficher le nom et le prix du fruit le moins cher</p>
             <div class="exercice-sandbox">
+
+            <?php
+                foreach ($store as $fruit => $price) {
+                    if (!isset($minPrice) || $price < $minPrice) {
+                        # code...
+                    }
+                    echo array_keys($store, min($price));
+                }
+            ?>
                 
             </div>
         </section>
@@ -195,9 +197,14 @@ $prices = [3, 2, 2, 5, 8];
             <p class="exercice-txt">Afficher les noms et le prix des fruits les plus chers</p>
             <div class="exercice-sandbox">
                 
+                 <?php
+                foreach ($store as $fruit => $price) {
+                    echo MAX($price);
+                }
+            ?>
+
             </div>
         </section>
-    </div>
-<div class="copyright">© Guillaume Belleuvre, 2022 - DWWM Le Havre</div>
-</body>
-</html>
+<?php
+include 'includes/_footer.php';
+?>
